@@ -10,6 +10,8 @@
 		5F09EFA479D4F5AC63593F1C /* Pods_InstagramClone_InstagramCloneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C630A75C13B86859824987 /* Pods_InstagramClone_InstagramCloneUITests.framework */; };
 		9863292177D3EC5E7B2ABC99 /* Pods_InstagramClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A4A58FC02B8C09D93191A6 /* Pods_InstagramClone.framework */; };
 		C00F8A90286A4BEF0096CB15 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00F8A8F286A4BEF0096CB15 /* LogInViewController.m */; };
+		C0276225286A53D500DA5738 /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0276224286A53D500DA5738 /* HomeFeedViewController.m */; };
+		C0276228286A53DE00DA5738 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0276227286A53DE00DA5738 /* ProfileViewController.m */; };
 		C0ADF4EE286A463600666237 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADF4ED286A463600666237 /* AppDelegate.m */; };
 		C0ADF4F1286A463600666237 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADF4F0286A463600666237 /* SceneDelegate.m */; };
 		C0ADF4F7286A463600666237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0ADF4F5286A463600666237 /* Main.storyboard */; };
@@ -49,6 +51,10 @@
 		BB9FB9415DC1B127E16E6C3C /* Pods-InstagramClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.debug.xcconfig"; path = "Target Support Files/Pods-InstagramClone/Pods-InstagramClone.debug.xcconfig"; sourceTree = "<group>"; };
 		C00F8A8E286A4BEF0096CB15 /* LogInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		C00F8A8F286A4BEF0096CB15 /* LogInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		C0276223286A53D500DA5738 /* HomeFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFeedViewController.h; sourceTree = "<group>"; };
+		C0276224286A53D500DA5738 /* HomeFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFeedViewController.m; sourceTree = "<group>"; };
+		C0276226286A53DE00DA5738 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		C0276227286A53DE00DA5738 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		C0ADF4E9286A463600666237 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0ADF4EC286A463600666237 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0ADF4ED286A463600666237 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -122,6 +128,12 @@
 		C00F8A91286A4BF90096CB15 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C00F8A8E286A4BEF0096CB15 /* LogInViewController.h */,
+				C00F8A8F286A4BEF0096CB15 /* LogInViewController.m */,
+				C0276223286A53D500DA5738 /* HomeFeedViewController.h */,
+				C0276224286A53D500DA5738 /* HomeFeedViewController.m */,
+				C0276226286A53DE00DA5738 /* ProfileViewController.h */,
+				C0276227286A53DE00DA5738 /* ProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -152,8 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				C00F8A91286A4BF90096CB15 /* View Controllers */,
-				C00F8A8E286A4BEF0096CB15 /* LogInViewController.h */,
-				C00F8A8F286A4BEF0096CB15 /* LogInViewController.m */,
 				C0ADF4EC286A463600666237 /* AppDelegate.h */,
 				C0ADF4ED286A463600666237 /* AppDelegate.m */,
 				C0ADF4EF286A463600666237 /* SceneDelegate.h */,
@@ -422,9 +432,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0276225286A53D500DA5738 /* HomeFeedViewController.m in Sources */,
 				C0ADF4EE286A463600666237 /* AppDelegate.m in Sources */,
 				C00F8A90286A4BEF0096CB15 /* LogInViewController.m in Sources */,
 				C0ADF4FF286A463600666237 /* main.m in Sources */,
+				C0276228286A53DE00DA5738 /* ProfileViewController.m in Sources */,
 				C0ADF4F1286A463600666237 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
