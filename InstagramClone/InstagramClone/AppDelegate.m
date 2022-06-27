@@ -24,7 +24,19 @@
     }];
 
     [Parse initializeWithConfiguration:config];
-
+//    PFObject *person = [PFObject objectWithClassName:@"Person"];
+//    person[@"age"] = @20;
+//    person[@"name"] = @"Gregorio";
+//    person[@"grade"] = @"Junior";
+//
+//    [person saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            NSLog(@"Object saved!");
+//        } else {
+//            NSLog(@"Error: %@", error.description);
+//        }
+//    }];
+    
     return YES;
 }
 
