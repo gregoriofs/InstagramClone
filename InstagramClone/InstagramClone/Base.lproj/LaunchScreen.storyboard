@@ -16,9 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="uCI-Gl-SWj">
-                                <rect key="frame" x="92" y="253" width="230" height="163"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZY-KI-3my">
                                 <rect key="frame" x="92" y="424" width="230" height="68"/>
                                 <constraints>
@@ -28,17 +25,25 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="B8k-7q-T17">
+                                <rect key="frame" x="131.5" y="241" width="151" height="148"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="148" id="KTs-Tw-xFv"/>
+                                    <constraint firstAttribute="width" constant="151" id="lPC-0N-1dS"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IZY-KI-3my" secondAttribute="bottom" constant="370" id="EJN-iD-VLz"/>
-                            <constraint firstItem="uCI-Gl-SWj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FFc-tM-IsJ"/>
-                            <constraint firstItem="uCI-Gl-SWj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="209" id="H8w-yu-5Bh"/>
-                            <constraint firstItem="uCI-Gl-SWj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="92" id="PH1-G6-65b"/>
-                            <constraint firstItem="IZY-KI-3my" firstAttribute="top" secondItem="uCI-Gl-SWj" secondAttribute="bottom" constant="8" id="Psd-92-VnH"/>
-                            <constraint firstItem="uCI-Gl-SWj" firstAttribute="leading" secondItem="IZY-KI-3my" secondAttribute="leading" id="QaN-Ut-lw3"/>
-                            <constraint firstItem="uCI-Gl-SWj" firstAttribute="trailing" secondItem="IZY-KI-3my" secondAttribute="trailing" id="TXk-se-ndn"/>
+                            <constraint firstItem="IZY-KI-3my" firstAttribute="top" secondItem="B8k-7q-T17" secondAttribute="bottom" constant="35" id="6Ci-39-W1K"/>
+                            <constraint firstItem="IZY-KI-3my" firstAttribute="centerX" secondItem="B8k-7q-T17" secondAttribute="centerX" id="Ctm-yK-BwW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IZY-KI-3my" secondAttribute="bottom" constant="10" id="EJN-iD-VLz"/>
+                            <constraint firstItem="B8k-7q-T17" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="197" id="TH9-Pj-9Us"/>
+                            <constraint firstItem="B8k-7q-T17" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="131.5" id="Ula-WA-h4n"/>
+                            <constraint firstItem="IZY-KI-3my" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iQR-F8-IUg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="B8k-7q-T17" secondAttribute="trailing" constant="131.5" id="jCw-Ua-kVm"/>
+                            <constraint firstItem="IZY-KI-3my" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="92" id="x1U-hF-sdm"/>
                         </constraints>
                     </view>
                 </viewController>
