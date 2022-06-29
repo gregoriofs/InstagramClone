@@ -2,38 +2,106 @@
 //  ProfileViewController.m
 //  InstagramClone
 //
-//  Created by Gregorio Floretino Sanchez on 6/27/22.
+//  Created by Gregorio Floretino Sanchez on 6/29/22.
 //
 
 #import "ProfileViewController.h"
-#import "LogInViewController.h"
-#import "SceneDelegate.h"
+#import "Parse.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) NSArray *arrayOfUserPosts;
+@property (strong,nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
 @implementation ProfileViewController
-- (IBAction)didTapLogOut:(id)sender {
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
-    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.refreshControl = [[UIRefreshControl alloc] init];
     
-    LogInViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LogInViewController"];
-    myDelegate.window.rootViewController = loginViewController;
+    [self.refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     
-    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        // PFUser.current() will now be nil
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    
+    self.username.text = [PFUser currentUser].username;
+    
+    [self fetchUserPosts];
+    
+    // Do any additional setup after loading the view.
+}
+
+
+-(void)beginRefresh:(UIRefreshControl *)refreshControl{
+    
+    [self fetchUserPosts];
+    
+}
+
+
+-(void)fetchUserPosts {
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    query.limit = 20;
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:@"author" equalTo:[PFUser currentUser]];
+//    [query whereKey:@"userId" equalTo:[PFUser currentUser].objectId];
+    
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.arrayOfUserPosts = posts;
+            NSLog(@"%@", posts);
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
     }];
     
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return self.arrayOfUserPosts.count;
 }
 
+// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+    
+    Post *post = self.arrayOfUserPosts[indexPath.row];
+
+    NSDate *createdAt = post.createdAt;
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+
+    formatter.dateFormat = @"MM/d/y, hh:mm aa";
+    
+    UIImage *likeImage = post.liked.boolValue ? [UIImage systemImageNamed:@"heart.fill"] : [UIImage systemImageNamed:@"suit.heart"];
+    
+    [cell.likeButton setImage:likeImage forState:UIControlStateNormal];
+    
+    cell.timeStamp.text = [formatter stringFromDate:createdAt];
+
+    cell.caption.text = post.caption;
+
+    PFUser *user = [PFUser currentUser];
+
+    cell.userName.text = [NSString stringWithFormat:@"%@:",user.username];
+
+    [cell setPost:post];
+
+    cell.numLikes.text = [NSString stringWithFormat:@"%d",post.likeCount.intValue];
+    
+    return cell;
+}
 /*
 #pragma mark - Navigation
 

@@ -33,6 +33,9 @@
     
     self.timeStamp.text = [formatter stringFromDate:createdAt];
     
+    NSString *likeCount = self.post.likeCount.intValue == 1 ? [NSString stringWithFormat:@"%d like", self.post.likeCount.intValue]: [NSString stringWithFormat:@"%d likes", self.post.likeCount.intValue];
+    
+    self.likeCount.text = likeCount;
     
 }
 

@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet PFImageView *postImage;
 @property (weak, nonatomic) IBOutlet UILabel *caption;
 @property (weak, nonatomic) IBOutlet UILabel *timeStamp;
+@property (weak, nonatomic) IBOutlet UILabel *likeCount;
 
 
 @end

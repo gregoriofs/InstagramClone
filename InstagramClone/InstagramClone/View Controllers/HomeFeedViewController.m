@@ -8,7 +8,7 @@
 #import "HomeFeedViewController.h"
 #import "PostCell.h"
 #import "PostDetailsViewController.h"
-
+#import "HeaderCell.h"
 
 
 @interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource, finishedPostingDelegate>
@@ -80,17 +80,26 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    return self.arrayOfPosts.count;
+    return 1;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.arrayOfPosts.count;
+}
+    
+//- (UITableViewHeaderFooterView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    Header* header = Header 
+//    
+//    header.textLabel.text = self.
+//}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
     
-    Post *post = self.arrayOfPosts[indexPath.row];
+    Post *post = self.arrayOfPosts[indexPath.section];
     
     NSDate *createdAt = post.createdAt;
     
@@ -103,6 +112,10 @@
     cell.caption.text = post.caption;
     
     PFUser *user = [PFUser currentUser];
+    
+    UIImage *likeImage = post.liked.boolValue ? [UIImage systemImageNamed:@"heart.fill"] : [UIImage systemImageNamed:@"suit.heart"];
+    
+    [cell.likeButton setImage:likeImage forState:UIControlStateNormal];
     
     cell.userName.text = [NSString stringWithFormat:@"%@:",user.username];
     

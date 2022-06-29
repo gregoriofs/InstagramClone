@@ -66,6 +66,7 @@
     self.postImage.layer.borderWidth = 2;
     
     
+    
 }
 
 -(void)selectingPictureforCamera{
