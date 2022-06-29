@@ -67,7 +67,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.arrayOfPosts = posts;
-            NSLog(@"sizeof posts array: %lu", (unsigned long)posts.count);
+            
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
             
@@ -77,6 +77,8 @@
     }];
     
 }
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return self.arrayOfPosts.count;
@@ -105,6 +107,8 @@
     cell.userName.text = [NSString stringWithFormat:@"%@:",user.username];
     
     [cell setPost:post];
+    
+    cell.numLikes.text = [NSString stringWithFormat:@"%d",post.likeCount.intValue];
     
     return cell;
 }

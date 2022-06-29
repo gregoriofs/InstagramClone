@@ -39,7 +39,6 @@
     
 }
 
-
 - (IBAction)didTapBackButton:(id)sender {
     SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
     
@@ -95,9 +94,9 @@
     CGSize size = CGSizeMake(384.0, 241.0);
     
     self.postImage.image = [self resizeImage:editedImage withSize:size];
-//    self.postImage.image = editedImage;
     
-    // Dismiss UIImagePickerController to go back to your original view controller
+    // Dismiss UIImagePickerController to go back to original view controller
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
