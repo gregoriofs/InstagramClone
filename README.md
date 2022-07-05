@@ -46,7 +46,10 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-https://im2.ezgif.com/tmp/ezgif-2-4977a69964.gif
+![gif1](https://user-images.githubusercontent.com/74148230/177427804-586cd84a-8b0a-448c-b378-2aae73c48a7c.gif)
+
+![gif3](https://user-images.githubusercontent.com/74148230/177427861-770316fd-4f10-4b73-a92b-09e0c46f88b7.gif)
+![gif2](https://user-images.githubusercontent.com/74148230/177427880-e7442410-0091-4ff5-84b1-3a6207c9ccab.gif)
 
 GIF created with [Kap](https://getkap.co/).
 
